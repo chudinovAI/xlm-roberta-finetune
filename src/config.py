@@ -1,0 +1,16 @@
+MODEL_NAME = "FacebookAI/xlm-roberta-large"
+DATA_PATH = "AINL-Eval-2025/data/train.csv"
+OUTPUT_DIR = "xlm-roberta-large-lora-ainl"
+BEST_MODEL_DIR = "best_model_lora"
+
+MAX_LENGTH = 512
+
+LORA_R = 16
+LORA_ALPHA = 32
+LORA_DROPOUT = 0.1
+
+LEARNING_RATE = 2e-5
+PER_DEVICE_TRAIN_BATCH_SIZE = 8
+PER_DEVICE_EVAL_BATCH_SIZE = 8
+NUM_TRAIN_EPOCHS = 3
+WEIGHT_DECAY = 0.01

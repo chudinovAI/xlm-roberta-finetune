@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xlm-roberta-finetune"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "datasets>=2.21.0",
+    "peft>=0.17.1",
+    "scikit-learn>=1.7.1",
+    "torch>=2.2.0",
+    "transformers>=4.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pyright",
+    "ruff",
+    "ipykernel",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
