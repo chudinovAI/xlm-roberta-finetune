@@ -23,12 +23,8 @@ cd ${PROJECT_DIR}
 
 echo "Starting distributed training with accelerate..."
 
-# `accelerate launch` автоматически обнаружит конфигурацию Slurm и настроит
-# распределенное окружение для PyTorch.
-# Флаг --use_deepspeed можно добавить, если вы настроили DeepSpeed в TrainingArguments.
 accelerate launch train.py
 
-# Проверка кода завершения. Если обучение не удалось, задача завершится с ошибкой.
 status=$?
 if [ $status -ne 0 ]; then
     echo "Training failed with exit code $status."
