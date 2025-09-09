@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import torch
 from transformers import AutoTokenizer, Trainer, TrainingArguments
 
@@ -6,7 +8,7 @@ import data_utils
 import model_utils
 
 
-def main():
+def main() -> None:
     train_dataset, eval_dataset, label2id, id2label = data_utils.load_and_prepare_data(
         config.DATA_PATH,
     )

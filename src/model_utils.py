@@ -77,6 +77,6 @@ def compute_metrics(
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
     return {
-        "accuracy": accuracy_score(labels, predictions),
-        "f1_weighted": f1_score(labels, predictions, average="weighted"),
+        "accuracy": float(accuracy_score(labels, predictions)),
+        "f1_weighted": float(f1_score(labels, predictions, average="weighted")),
     }

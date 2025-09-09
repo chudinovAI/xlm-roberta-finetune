@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
+
 import pandas as pd
 from datasets import Dataset
 from sklearn.model_selection import train_test_split
