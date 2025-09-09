@@ -1,17 +1,28 @@
+from __future__ import annotations
+
 import torch
 from peft import PeftModel
 from tqdm import tqdm
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+    PreTrainedTokenizerBase,
+)
 
 import config
 
 
-def predict_batch(texts, model, tokenizer, batch_size=16):
+def predict_batch(
+    texts: list[str],
+    model: PeftModel | AutoModelForSequenceClassification,
+    tokenizer: PreTrainedTokenizerBase,
+    batch_size: int = 16,
+) -> list[str]:
     model.eval()
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model.to(device)
 
-    predictions = []
+    predictions: list[str] = []
     for i in tqdm(range(0, len(texts), batch_size), desc="Predicting"):
         batch = texts[i : i + batch_size]
         inputs = tokenizer(
@@ -27,7 +38,9 @@ def predict_batch(texts, model, tokenizer, batch_size=16):
             logits = model(**inputs).logits
 
         predicted_class_ids = torch.argmax(logits, dim=1).cpu().tolist()
-        predicted_labels = [model.config.id2label[id] for id in predicted_class_ids]
+        predicted_labels = [
+            model.config.id2label[class_id] for class_id in predicted_class_ids
+        ]
         predictions.extend(predicted_labels)
 
     return predictions
