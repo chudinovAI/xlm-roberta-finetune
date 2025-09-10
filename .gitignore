@@ -17,6 +17,7 @@ outputs/
 *.bin
 
 # Virtual environments
+.DS_store
 .venv
 uv.lock
 pyrightconfig.json
