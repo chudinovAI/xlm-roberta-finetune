@@ -23,6 +23,9 @@ xlm-roberta-finetune/
 │   ├── dev.csv           # Development data
 │   ├── dev_full.csv      # Full development data
 │   └── test.csv          # Test data for inference
+|   debug/          # Debug files
+│   ├── create_debug_dataset.py        # Debug dataset
+│   ├── debug.sh          # Debug shell script
 ├── src/                      # Source code
 │   ├── config.py            # Configuration settings
 │   ├── data_utils.py        # Data loading and preprocessing
@@ -97,7 +100,7 @@ Before training, review the configuration in `src/config.py`:
 ```python
 MODEL_NAME = "FacebookAI/xlm-roberta-large"
 TRAIN_DATA_PATH = "data/train.csv"
-DEV_DATA_PATH = "data/dev.csv"
+DEV_DATA_PATH = "data/dev_full.csv"
 TEST_DATA_PATH = "data/test.csv"
 
 # LoRA Configuration
