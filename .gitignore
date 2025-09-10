@@ -5,8 +5,20 @@ build/
 dist/
 wheels/
 *.egg-info
-.python-version
-uv.lock
-pyrightconfig.json
+
+# IDE
+.vscode/
+.idea/
+
+# DATA
+outputs/
+*.csv
+*.pt
+*.bin
+
 # Virtual environments
 .venv
+uv.lock
+pyrightconfig.json
+.python-version
+.ruff_cache

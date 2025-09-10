@@ -1,17 +1,21 @@
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).parent.parent
-DATA_DIR = PROJECT_ROOT / "AINL-Eval-2025" / "data"
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 SAVED_MODELS_DIR = OUTPUTS_DIR / "saved_models"
-CHECKPOINTS_DIR = SAVED_MODELS_DIR / "checkpoints"
-BEST_MODEL_DIR = SAVED_MODELS_DIR / "best_model_lora"
+# CHECKPOINTS_DIR = SAVED_MODELS_DIR / "checkpoints"
+# BEST_MODEL_DIR = SAVED_MODELS_DIR / "best_model_lora"
+CHECKPOINTS_DIR = SAVED_MODELS_DIR / "checkpoints_debug"
+BEST_MODEL_DIR = SAVED_MODELS_DIR / "best_model_lora_debug"
 
-TRAIN_DATA_PATH = DATA_DIR / "train.csv"
-DEV_DATA_PATH = DATA_DIR / "dev.csv"
-TEST_DATA_PATH = DATA_DIR / "test.csv"
+# TRAIN_DATA_PATH = DATA_DIR / "train.csv"
+# DEV_DATA_PATH = DATA_DIR / "dev_full.csv"
+# TEST_DATA_PATH = DATA_DIR / "test.csv"
 SUBMISSION_PATH = OUTPUTS_DIR / "submission.csv"
-
+TRAIN_DATA_PATH = DATA_DIR / "train_debug.csv"
+DEV_DATA_PATH = DATA_DIR / "dev_debug.csv"
+SUBMISSION_PATH = OUTPUTS_DIR / "submission_debug.csv"
 MODEL_NAME = "FacebookAI/xlm-roberta-large"
 MAX_LENGTH = 512
 
@@ -20,9 +24,12 @@ LORA_ALPHA = 32
 LORA_DROPOUT = 0.1
 
 LEARNING_RATE = 2e-5
-PER_DEVICE_TRAIN_BATCH_SIZE = 8
-PER_DEVICE_EVAL_BATCH_SIZE = 8
-NUM_TRAIN_EPOCHS = 3
+# PER_DEVICE_TRAIN_BATCH_SIZE = 8
+# PER_DEVICE_EVAL_BATCH_SIZE = 8
+# NUM_TRAIN_EPOCHS = 3
 WEIGHT_DECAY = 0.01
+PER_DEVICE_TRAIN_BATCH_SIZE = 2
+PER_DEVICE_EVAL_BATCH_SIZE = 2
+NUM_TRAIN_EPOCHS = 1
 
 OUTPUT_DIR = CHECKPOINTS_DIR
